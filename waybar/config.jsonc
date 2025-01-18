@@ -1,0 +1,41 @@
+{
+    "layer": "top",
+    "position":"bottom",
+    "height": 30,
+    "width":900,
+    //"mode":"hide",
+    "modifier-reset":"release",
+
+    "modules-left":   ["hyprland/workspaces"],
+    "modules-center": ["hyprland/window"],
+    "modules-right":  ["memory", "tray", "clock"],
+
+    "hyprland/window": {
+        "max-length": 50,
+        "format":"{class}",
+    },
+    "clock": {
+        "format-alt": "{:%a, %d. %b  %H:%M}"
+    },
+    "memory": {
+        "format":"MEM: {used} GiB"
+    },
+    "hyprland/workspaces": {
+        "format": " {icon} {windows} ",
+        "window-rewrite-default": "󰘔",
+        "window-rewrite": {
+            "title<.*youtube.*>": "",
+            "class<zen>": "󰈹",
+            "class<Emacs>": "",
+            "class<firefox> title<.*github.*>": "",
+            "class<kitty>": "",
+            "class<kitty> title<vi.*>": "",
+            "class<vlc>":"󰕼",
+            "class<steam>":"",
+            "class<discord>":"",
+            "class<.*okular>":"",
+            "class<thunar>":"",
+            "class<Spotify.*>":"",
+        },
+    }
+}
