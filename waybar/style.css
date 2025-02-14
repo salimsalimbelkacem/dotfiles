@@ -9,7 +9,7 @@ window#waybar {
     transition-property: background-color;
     transition-duration: .5s;
 
-    border-radius: 5px 
+    border-radius: 0px;
 }
 
 window#waybar.hidden {
@@ -39,6 +39,7 @@ button {
 
 #workspaces button.active {
     background-color: #223249;
+    border-radius: 0px;
 }
 
 #workspaces button.urgent {
@@ -48,7 +49,7 @@ button {
 #clock, #tray {
     padding: 0 10px;
     color: #DCD7BA;
-    border-radius: 5px;
+   border-radius: 0px;
 }
 
 #window, #workspaces {

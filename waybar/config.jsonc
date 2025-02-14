@@ -1,21 +1,23 @@
 {
-    "layer": "top",
+    "layer": "bottom",
     "position":"bottom",
     "height": 30,
     "width":900,
     //"mode":"hide",
     "modifier-reset":"release",
 
-    "modules-left":   ["hyprland/workspaces"],
+    "modules-left":   ["hyprland/workspaces",],
     "modules-center": ["hyprland/window"],
-    "modules-right":  ["memory", "tray", "clock"],
+    "modules-right":  ["tray", "clock"],
 
     "hyprland/window": {
-        "max-length": 50,
+        "max-length": 20,
         "format":"{class}",
     },
     "clock": {
-        "format-alt": "{:%a, %d. %b  %H:%M}"
+        "format-alt": "{:%a, %d. %b  %H:%M}",
+        "tooltip":false
+        //"tooltip-format": "{calendar}",
     },
     "memory": {
         "format":"MEM: {used} GiB"
@@ -24,18 +26,13 @@
         "format": " {icon} {windows} ",
         "window-rewrite-default": "󰘔",
         "window-rewrite": {
-            "title<.*youtube.*>": "",
-            "class<zen>": "󰈹",
-            "class<Emacs>": "",
-            "class<firefox> title<.*github.*>": "",
-            "class<kitty>": "",
-            "class<kitty> title<vi.*>": "",
-            "class<vlc>":"󰕼",
-            "class<steam>":"",
-            "class<discord>":"",
-            "class<.*okular>":"",
-            "class<thunar>":"",
-            "class<Spotify.*>":"",
+            "class<blender>":"󰂫",     "class<thunar>":"",
+            "class<discord>":"",     "class<kitty>":"",
+            "class<.*okular>":"",    "class<Emacs>":"",
+            "class<Spotify.*>":"",   "title<vi.*>":"",
+            "title<lazygit.*>":"󰊢",   "class<steam>":"",
+            "title<.*github.*>":"",  "class<vlc>":"󰕼",
+            "title<.*youtube.*>":"", "class<zen>": "󰈹",
         },
     }
 }
