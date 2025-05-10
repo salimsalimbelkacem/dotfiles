@@ -1,14 +1,14 @@
 {
     "layer": "bottom",
     "position":"bottom",
-    "height": 30,
-    "width":900,
+    "height": 40,
+    //"width":700,
     //"mode":"hide",
     "modifier-reset":"release",
 
     "modules-left":   ["hyprland/workspaces",],
     "modules-center": ["hyprland/window"],
-    "modules-right":  ["tray", "clock"],
+    "modules-right":  ["memory", "tray", "clock"],
 
     "hyprland/window": {
         "max-length": 20,
@@ -20,7 +20,7 @@
         //"tooltip-format": "{calendar}",
     },
     "memory": {
-        "format":"MEM: {used} GiB"
+        "format":"{used} GB "
     },
     "hyprland/workspaces": {
         "format": " {icon} {windows} ",
@@ -32,7 +32,14 @@
             "class<Spotify.*>":"",   "title<vi.*>":"",
             "title<lazygit.*>":"󰊢",   "class<steam>":"",
             "title<.*github.*>":"",  "class<vlc>":"󰕼",
-            "title<.*youtube.*>":"", "class<zen>": "󰈹",
+            "title<.*youtube.*>":"",
+            "class<zen>": "󰈹", "class<librewolf>": "󰈹",
         },
+    },
+    "image":{
+        "path":"/home/salim/Downloads/wizard.png"
+    },
+    "mpd":{
+        "server":"127.0.0.1",
     }
 }
