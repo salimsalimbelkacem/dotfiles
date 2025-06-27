@@ -1,0 +1,15 @@
+(defwidget right[]
+ (box
+  ;:space-evenly false
+  :class "right"
+  :halign "end"
+  :spacing 10
+
+  (systray
+	:spacing 5
+	:icon-size 16
+  )
+  (clock)
+ )
+ )
+

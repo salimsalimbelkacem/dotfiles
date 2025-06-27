@@ -1,0 +1,6 @@
+(defwidget middle[]
+ (box
+  :class "middle"
+  "${currentwindow}"
+ )
+)

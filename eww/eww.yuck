@@ -1,0 +1,21 @@
+(defvar time-visible true)
+;(defvar config_path "/home/salim/.config/eww/")
+
+(defpoll currentwindow
+	:initial " "
+	:interval "40ms"
+	:run-while true `hyprctl activewindow | grep -Po "(?<=title: ).*"`
+)
+
+(defpoll currentworkspace
+ :interval "40ms"
+ :run-while true `hyprctl activeworkspace | grep -PIo "(?<=ID )\\d+"`
+ )
+
+(defpoll usedworkspaces
+ :interval "40ms"
+ :run-while true `hyprctl workspaces | grep -Po "(?<=ID )\\d+" | sort | awk 'BEGIN{printf "["} {printf (NR==1?"%d":",%d"), $1} END{print "]"}'`
+ )
+
+(include "./widgets/tuxclock.yuck")
+(include "./widgets/bar/bar.yuck")

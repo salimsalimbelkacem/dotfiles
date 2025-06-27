@@ -1,0 +1,38 @@
+(defwindow tuxclock
+ :monitor 0
+ :class "tuxclock"
+ :geometry ( geometry
+	 ;:x "20px"
+	 :y "20px"
+	 :width "50%"
+	 :anchor "center center"
+	 )
+ :hexpand true
+ :vexpand true
+ :stacking "bg"
+ ;:exclusive true
+ ;:transparent true
+
+ (box 
+  :orientation "vertical"
+  :space-evenly false
+  :spacing 10
+  (image 
+   :path "/home/salim/3d wizard gifs/tux using computer transparent.gif"
+  )
+  (clock)
+  ;(systray)
+ )
+ )
+
+ (deflisten clock_ :initial "clock ig"
+  `/home/salim/.config/eww/scripts/clock.bash`
+ )
+
+ (defwidget clock []
+  (box
+   :class "time"
+   "${clock_}"
+  )
+ )
+;/usr/share/themes/

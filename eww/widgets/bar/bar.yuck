@@ -1,0 +1,25 @@
+(include "./widgets/bar/left.yuck")
+(include "./widgets/bar/middle.yuck")
+(include "./widgets/bar/right.yuck")
+
+(defwidget bar []
+ (box
+  :class "bar"
+  (left)
+  (middle)
+  (right)
+ )
+ )
+
+(defwindow bar
+ :monitor 0
+ :geometry ( geometry
+	 :y "20px"
+	 :width "100%"
+	 ;:height "25px"
+	 :anchor "bottom center"
+	 )
+ :exclusive true
+ :stacking "bg"
+ (bar)
+ ) 
