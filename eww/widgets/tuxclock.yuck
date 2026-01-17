@@ -21,12 +21,7 @@
    :path "/home/salim/3d wizard gifs/tux using computer transparent.gif"
   )
   (clock)
-  ;(systray)
  )
- )
-
- (deflisten clock_ :initial "clock ig"
-  `/home/salim/.config/eww/scripts/clock.bash`
  )
 
  (defwidget clock []

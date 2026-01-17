@@ -1,21 +1,24 @@
 (defvar time-visible true)
-;(defvar config_path "/home/salim/.config/eww/")
+
+(defvar izan true)
+;(defpoll sound-lvl :interval "10s"
+; :run-while true `amixer sget Master | grep -Po "(?<= \[)\d+" | uniq ; eww update izan=false`)
+
+(defpoll clock_ :interval "500ms" :initial "stupid clock" :run-while true `date +"%H:%M"`)
 
 (defpoll currentwindow
-	:initial " "
-	:interval "40ms"
-	:run-while true `hyprctl activewindow | grep -Po "(?<=title: ).*"`
-)
-
-(defpoll currentworkspace
+ :initial " "
  :interval "40ms"
- :run-while true `hyprctl activeworkspace | grep -PIo "(?<=ID )\\d+"`
- )
+ :run-while true
+ `hyprctl activewindow | grep -Po "(?<=title: ).*" || echo ""`)
 
-(defpoll usedworkspaces
- :interval "40ms"
- :run-while true `hyprctl workspaces | grep -Po "(?<=ID )\\d+" | sort | awk 'BEGIN{printf "["} {printf (NR==1?"%d":",%d"), $1} END{print "]"}'`
- )
+(defpoll currentworkspace :interval "40ms"
+ :run-while true `hyprctl activeworkspace | grep -PIo "(?<=ID )\\d+"`)
+
+(defpoll usedworkspaces :interval "40ms"
+ :run-while true `hyprctl workspaces | grep -Po "(?<=ID )\\d+" | sort | awk 'BEGIN{printf "["} {printf (NR==1?"%d":",%d"), $1} END{print "]"}'`)
+
 
 (include "./widgets/tuxclock.yuck")
 (include "./widgets/bar/bar.yuck")
+(include "./widgets/sound.yuck")

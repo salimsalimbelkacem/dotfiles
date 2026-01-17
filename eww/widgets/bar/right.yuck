@@ -1,6 +1,6 @@
 (defwidget right[]
  (box
-  ;:space-evenly false
+  :space-evenly false
   :class "right"
   :halign "end"
   :spacing 10

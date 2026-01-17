@@ -12,21 +12,25 @@ window {
 }
 
 .bar {
+  font-family:"velvelyne";
+  font-size: 12pt;
   // .middle{ border: 1px solid red; }
+  // .left{ font-size: 11pt; }
+  // .middle{ font-size: 10pt; }
+  // .right{ }
+  background-color: #1F1F28;
+  padding: 10px 20px;
+  // box-shadow: inset 0 0px 6px 0 #363646;
+  // border: solid 2px red;
+}
 
-  .right{ margin-right:20px; }
-  .left{
-    margin-left:20px; 
-    font-size: 9pt;
-
-    .workspace-btn{
-      border-radius: 15;
-      background-color:#1F1F28;
-      padding:  0 5;
-    }
-
-    .active { background-color: #223249; }
+.workspaces{
+  .workspace-btn{
+    border-radius: 5px;
+    background-color:transparent;
+    padding: 1;
+    // margin:0 10;
+    box-shadow: inset 0 -1px 3px 0 #363646;
   }
-
-  // .workspaces{ }
+  .active { background-color: #223249; }
 }
