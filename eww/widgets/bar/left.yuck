@@ -3,6 +3,6 @@
   :space-evenly false
   :class "left"
 
-  "${currentwindow ?: ' '}"
+  "${currentwindow ?: 'no window'}"
  )
  )

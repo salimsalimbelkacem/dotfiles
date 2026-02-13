@@ -9,7 +9,14 @@
 	:spacing 5
 	:icon-size 16
   )
-  (clock)
+
+   (date)
  )
  )
 
+
+(defwidget date[]
+	   (box
+	    "${date_}"
+	    )
+	   )
