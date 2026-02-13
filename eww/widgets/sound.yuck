@@ -1,0 +1,21 @@
+(defwindow sound_applet []
+ :monitor 0
+ :geometry ( geometry
+	 ;:x "20px"
+	 ;:y "20px"
+	 :width "200px"
+	 :anchor "bottom right"
+	 )
+
+ (sound_app)
+ )
+
+(defwidget sound_app[]
+	   (scale :draw-value true
+		  :onchange "amixer set Master {}%"
+		  :max 101
+		  :hexpand true
+		  )
+	   )
+	   
+

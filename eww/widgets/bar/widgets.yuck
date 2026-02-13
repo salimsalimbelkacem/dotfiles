@@ -1,0 +1,22 @@
+(defwidget workspaces []
+ (box
+  :space-evenly false
+  :class "workspaces"
+  :spacing 5
+
+  (literal :content currentworkspace :visible false)
+  (for workspace in usedworkspaces
+
+   (eventbox
+    :width  15
+    :height 15
+
+    :valign "center"
+
+	:class "workspace-btn ${workspace==currentworkspace ? 'active':''}"
+	:onclick "hyprctl dispatch workspace ${workspace}"
+	;; "${workspace}"
+	)
+  )
+ )
+ )
