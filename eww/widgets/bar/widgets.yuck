@@ -1,22 +1,6 @@
-(defwidget workspaces []
- (box
-  :space-evenly false
-  :class "workspaces"
-  :spacing 5
+(defpoll display_workspaces :interval "70ms" :run-while true
+	 `$HOME/.config/eww/scripts/workspaces`
+	 )
 
-  (literal :content currentworkspace :visible false)
-  (for workspace in usedworkspaces
 
-   (eventbox
-    :width  15
-    :height 15
-
-    :valign "center"
-
-	:class "workspace-btn ${workspace==currentworkspace ? 'active':''}"
-	:onclick "hyprctl dispatch workspace ${workspace}"
-	;; "${workspace}"
-	)
-  )
- )
- )
+(defwidget workspaces [] (literal :content display_workspaces))

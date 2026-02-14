@@ -3,6 +3,8 @@
   :space-evenly false
   :class "left"
 
-  "${currentwindow ?: 'no window'}"
+  :spacing 10
+
+  (workspaces)
  )
  )

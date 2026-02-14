@@ -1,0 +1,32 @@
+#! /bin/bash
+
+used_w=$(hyprctl workspaces | grep -Po "(?<=ID )\\d+" | sort -n)
+active_w=$(hyprctl activeworkspace | grep -PIo "(?<=ID )\\d+")
+
+used=""
+active=""
+
+echo "(box :space-evenly false :class \"workspaces\" :spacing 10"
+
+for workspace in 1 2 3 4 5 6 7 8 9 10
+do
+
+    if echo $used_w | grep -e "\<$workspace\>" > /dev/null; then
+	if [[ $active_w == $workspace ]]; then
+	    active="active"
+	    used=""
+	else
+	    used="used"
+	    active=""
+	fi
+    else
+	used=""
+	active=""
+    fi
+
+    
+
+     echo " (eventbox :width 15 :height 15 :valign \"center\" :class \"workspace-btn ${used} ${active}\" :onclick \"hyprctl dispatch workspace ${workspace}\")"
+done
+
+echo ")"

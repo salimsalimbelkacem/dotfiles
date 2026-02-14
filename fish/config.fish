@@ -14,7 +14,7 @@ alias mv 'mv -v'
 
 
 if status is-interactive
-	neofetch
+	fastfetch
     # Commands to run in interactive sessions can go here
 end
 

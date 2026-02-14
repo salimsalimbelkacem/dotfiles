@@ -7,8 +7,7 @@ window {
     font-size: 80pt;
     font-family: freeserif;
     font-weight: bold;
-  }
-}
+  }}
 
 .bar {
   font-family:"velvelyne";
@@ -18,26 +17,51 @@ window {
   .left, .right{
       >* {
 	  background-color: #1F1F28;
-	  padding: 10 20; 
-	  border-radius: 15;
-      }
-  }
+	  border-radius: 10;
+	  padding: 0 10; 
+      }}
 
   background-color:transparent;
   padding: 0 10 10 10;
 }
 
 .workspaces {
+    padding: 10 0;
+
     .workspace-btn {
+	border: solid 3 #54546D;
+
 	background: transparent;
-
-	border: solid 3 #C8C093;
-
-	padding: 0;
-
-	border-radius: 100;
+	border-radius: 10;
     }
+
     .active {
 	background-color: #C8C093;
+	border: solid 3 #C8C093;
+    }
+
+    .used {
+	border: solid 3 #C8C093;
+    }
+}
+
+.volume-button {
+    border-radius: 10;
+    background: transparent;
+}
+
+.volume-icon {
+    color: #C8C093;
+}
+
+.volbar {
+    padding: 0 15;
+    
+}
+.time-date {
+    padding: 0 10;
+
+    button {
+	background: none;
     }
 }

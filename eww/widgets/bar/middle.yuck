@@ -3,6 +3,7 @@
   :halign "center"
   :space-evenly false
   :class "middle"
-  (workspaces)
+
+  "${currentwindow ?: ''}"
  )
 )
