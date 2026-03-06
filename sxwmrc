@@ -3,28 +3,28 @@ focused_border_colour    : #aeaeae
 unfocused_border_colour  : #444444
 swap_border_colour       : #eeeeee
 
-exec : "~/.dwm/autostart.sh"
-exec : "polybar"
-exec : "nm-applet"
+exec : "emacs --daemon"
+exec : "setxkbmap -option caps:escape"
+exec : "nm-applet &"
 
 # General Options:
-gaps                    : 25
+gaps                    : 10
 border_width            : 1
-master_width            : 60 # Percentage of screen width
-resize_master_amount    : 1
+master_width            : 80
+resize_master_amount    : 3
 resize_stack_amount     : 30
 move_window_amount      : 50
 resize_window_amount    : 50
 snap_distance           : 5
-motion_throttle         : 60 # Set to screen refresh rate for smoothest motions
-should_float            : "pcmanfm", "obs"
+motion_throttle         : 60
+should_float            : "pcmanfm", "obs", "thunar"
 new_win_focus           : true
 warp_cursor             : true
 floating_on_top         : true
-new_win_master          : false
+new_win_master          : true
 can_swallow             : "st"
-can_be_swallowed        : "mpv", "sxiv"
-start_fullscreen        : "mpv", "vlc"
+# can_be_swallowed        : "mpv", "sxiv"
+# start_fullscreen        : "mpv", "vlc"
 
 # Keybinds:
 # Commands must be surrounded with ""
@@ -33,7 +33,7 @@ mod_key : super
 
 # Application Launchers:
 bind : mod + shift + Return : "st"
-bind : mod + b : "librewolf"
+bind : mod + b : "qutebrowser"
 bind : mod + p : "dmenu_run"
 bind : mod + e : "emacsclient -c"
 
@@ -42,7 +42,6 @@ call : mod + q : close_window
 call : mod + c : centre_window
 call : mod + shift + q : quit
 call : mod + m : toggle_monocle
-
 
 # Focus Movement:
 call : mod + j : focus_next
@@ -57,8 +56,8 @@ call : mod + shift + comma : move_prev_mon
 call : mod + shift + period : move_next_mon
 
 # Master/Stack Movement
-call : mod + shift + j : master_next
-call : mod + shift + k : master_prev
+call : mod + return : master_next
+call : mod + ctrl + return : master_prev
 
 # Master Area Resize
 call : mod + l : master_increase
@@ -74,10 +73,10 @@ call : mod + Down : move_win_down
 call : mod + Left : move_win_left
 call : mod + Right : move_win_right
 
-call : mod + shift + Up : resize_win_up
-call : mod + shift + Down : resize_win_down
-call : mod + shift + Left : resize_win_left
-call : mod + shift + Right : resize_win_right
+call : mod + shift + k	: resize_win_up
+call : mod + shift + j	: resize_win_down
+call : mod + shift + h	: resize_win_left
+call : mod + shift + l 	: resize_win_right
 
 # Gaps 
 call : mod + equal : increase_gaps
@@ -109,20 +108,21 @@ scratchpad : mod + alt + shift + 4 : remove 4
 
 # Workspaces (1-9)
 workspace : mod + 1          : move 1
-workspace : mod + shift + 1  : swap 1
 workspace : mod + 2          : move 2
-workspace : mod + shift + 2  : swap 2
 workspace : mod + 3          : move 3
-workspace : mod + shift + 3  : swap 3
 workspace : mod + 4          : move 4
-workspace : mod + shift + 4  : swap 4
 workspace : mod + 5          : move 5
-workspace : mod + shift + 5  : swap 5
 workspace : mod + 6          : move 6
-workspace : mod + shift + 6  : swap 6
 workspace : mod + 7          : move 7
-workspace : mod + shift + 7  : swap 7
 workspace : mod + 8          : move 8
-workspace : mod + shift + 8  : swap 8
 workspace : mod + 9          : move 9
+
+workspace : mod + shift + 1  : swap 1
+workspace : mod + shift + 2  : swap 2
+workspace : mod + shift + 3  : swap 3
+workspace : mod + shift + 4  : swap 4
+workspace : mod + shift + 5  : swap 5
+workspace : mod + shift + 6  : swap 6
+workspace : mod + shift + 7  : swap 7
+workspace : mod + shift + 8  : swap 8
 workspace : mod + shift + 9  : swap 9

@@ -1,6 +1,5 @@
-(defpoll display_workspaces :interval "70ms" :run-while true
-	 `$HOME/.config/eww/scripts/workspaces`
-	 )
+(deflisten display_workspaces `$HOME/.config/eww/scripts/workspaces`)
 
 
-(defwidget workspaces [] (literal :content display_workspaces))
+(defwidget workspaces []
+	   (box (literal :valign "center" :content display_workspaces)))

@@ -4,23 +4,16 @@
 (include "./widgets/bar/right.yuck")
 
 (defwidget bar []
- (box
-  :class "bar"
-  (left)
-  (middle)
-  (right)
- )
- )
+	   (box :class "bar"
+		(left) (middle) (right)))
 
 (defwindow status_bar
- :monitor 0
- :geometry ( geometry
-	 ;:y "20px"
-	 :width "100%"
-	 ;:height "25px"
-	 :anchor "bottom center"
-	 )
- :exclusive true
- :stacking "bg"
- (bar)
- ) 
+	   :monitor 0
+	   :geometry
+	   (geometry :height "22px" :width "100%" :anchor "bottom center")
+
+	   :reserve (struts :distance "30px" :side "bottom")
+	   :stacking "bg"
+	   :wm-ignore false
+	   (bar)
+	   ) 

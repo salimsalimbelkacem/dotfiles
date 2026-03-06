@@ -1,4 +1,7 @@
+;; (defvar bat_reveal false)
 (defvar date_reveal false)
+
+
 (defwidget right[]
 	   (box
 	    :space-evenly false
@@ -7,41 +10,22 @@
 
 	    :class "right"
 
-	    (volume)
-
-	    (systray
-	     :spacing 5
-	     :icon-size 16
-	     )
-
-	    (eventbox :onhover "eww update date_reveal=true"
-		      :onhoverlost "eww update date_reveal=false"
-
-		      (box :space-evenly "false" :orientation "h" :spacing "3" 
-			   :class "time-date"
-			   (revealer :transition "slideleft"
-				     :reveal date_reveal
-				     :duration "350ms"
-
-	    			     (date)
-	    			     )
-
-			   (clock)
-			   )))
-	   )
-
-
-(defwidget date[]
-	   (button
-	    "${date_}"
+	    (pretty_battery)
+	    
+	    (expand_clock)
 	    ))
 
+
+(defwidget date[] (box "${date_}"))
+
 (defvar vol_reveal false)
+
 (defpoll volume_percent :interval "3s" "amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
 
 (defwidget volume []
 	   (eventbox :onhover "eww update vol_reveal=true"
 		     :onhoverlost "eww update vol_reveal=false"
+
 		     (box :class "module-2" :space-evenly "false" :orientation "h" :spacing "0" 
 
 			  (revealer :transition "slideleft"
@@ -58,8 +42,38 @@
 
 			  (button :onclick "pwvucontrol &" :class "volume-button"
 				  (image :path "./vol.svg"
-					 :image-width 20
+					 :image-width 5
 					 :class "volume-icon"
 					 :fill-svg "#c8c093"
-					 ))
-			  )))
+					 )))))
+
+(defwidget expand_clock[]
+	   (box
+	    (eventbox :onhover "eww update date_reveal=true"
+		      :onhoverlost "eww update date_reveal=false"
+
+		      (box
+		       :space-evenly "false" :orientation "h" :spacing "3" 
+		       :class "time-date"
+		       (revealer
+			:transition "slideleft"
+			:reveal date_reveal
+			:duration "350ms"
+
+	    		(date))
+
+		       (clock)
+		       ))))
+
+(defwidget pretty_battery[]
+	   (overlay
+	    :valign "end"
+	    :class "bat-prog"
+
+	    (progress
+	     :value bat_cap
+	     :width 10
+	     :valign "center"
+	     :css "progress{background-color:${bat_stat == 'Charging'? '#1e50cc' : bat_cap>20 ? 'green' : 'red'};}")
+	    "${bat_cap}"
+	    ))

@@ -3,16 +3,14 @@
 (defpoll clock_ :interval "500ms" :run-while true `date +"%H:%M"`)
 (defpoll date_ :interval "500ms" :run-while true `date +"%a %d %b"`)
 
+(defpoll wifi_info :interval "1000ms" :run-while true `nmcli | head -n 1`)
+
+(defpoll bat_cap :interval  "1000ms" :run-while true `$HOME/.config/eww/scripts/battery --bat`)
+(defpoll bat_stat :interval "1000ms" :run-while true `$HOME/.config/eww/scripts/battery --bat-st`)
+
 (defpoll currentwindow
  :initial " " :interval "40ms" :run-while true
- `hyprctl activewindow | grep -Po "(?<=class: ).*" || echo ""`)
-
-;; (defpoll currentworkspace :interval "40ms" :run-while true
-;; 	 `hyprctl activeworkspace | grep -PIo "(?<=ID )\\d+"`)
-
-;; (defpoll usedworkspaces :interval "40ms" :run-while true
- ;; `hyprctl workspaces | grep -Po "(?<=ID )\\d+" | sort -n | awk 'BEGIN{printf "["} {printf (NR==1?"%d":",%d"), $1} END{print "]"}'`)
-
+ `xprop -root | grep "_NET_ACTIVE_WINDOW" | awk -F' ' '{print $5}' | xargs -I {} xprop -id {} | grep _NET_WM_NAME | cut -d'"' -f2`)
 
 (include "./widgets/tuxclock.yuck")
 (include "./widgets/bar/bar.yuck")

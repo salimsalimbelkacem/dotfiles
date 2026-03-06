@@ -1,67 +1,61 @@
 window {
-  background-color: rgba(0,0,0,0);
+background-color: rgba(0,0,0,0);
+color: #e1e1e1;
 }
 
 .tuxclock {
-  .time{
-    font-size: 80pt;
-    font-family: freeserif;
-    font-weight: bold;
-  }}
+.time{
+font-size: 80pt;
+font-family: freeserif;
+font-weight: bold;
+}}
 
 .bar {
-  font-family:"velvelyne";
-  font-size: 14pt;
+font-size: 10pt;
+padding: 5 10; 
+background-color: #1e1e1e;
 
-
-  .left, .right{
-      >* {
-	  background-color: #1F1F28;
-	  border-radius: 10;
-	  padding: 0 10; 
-      }}
-
-  background-color:transparent;
-  padding: 0 10 10 10;
+border-radius: 10 10 10 10;
 }
 
 .workspaces {
-    padding: 10 0;
-
-    .workspace-btn {
-	border: solid 3 #54546D;
-
-	background: transparent;
-	border-radius: 10;
-    }
-
-    .active {
-	background-color: #C8C093;
-	border: solid 3 #C8C093;
-    }
-
-    .used {
-	border: solid 3 #C8C093;
-    }
+.workspace-btn {
+    border: solid 2 #3e3e3e;
+    background: transparent;
+    border-radius: 5;
 }
+
+.active {
+    background-color: #e1e1e1;
+    border: none;
+}
+
+.used {
+    border: solid 2 #e1e1e1;
+}}
 
 .volume-button {
-    border-radius: 10;
-    background: transparent;
+border: none;
+background: transparent;
 }
 
-.volume-icon {
-    color: #C8C093;
+.bat-prog {
+    // font-size: 10;
+progress {
+    border: none;
+    border-radius: 3;
+    min-height: 13px;
 }
 
-.volbar {
-    padding: 0 15;
-    
-}
-.time-date {
-    padding: 0 10;
+trough {
+    padding: 2 4 2 3;
+    background-color: transparent;
+    min-width: 30px;
+    min-height: 13px;
+    border: solid 0.7 #e1e1e1;
+    border-radius: 6;
+}}
 
-    button {
-	background: none;
-    }
+progressbar {
+background-color: transparent;
 }
