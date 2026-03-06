@@ -17,10 +17,10 @@
  :geometry ( geometry
 	 ;:y "20px"
 	 :width "100%"
-	 ;:height "25px"
+	 ;; :height "100%"
 	 :anchor "bottom center"
 	 )
  :exclusive true
- :stacking "bg"
+ :stacking "fg"
  (bar)
  ) 

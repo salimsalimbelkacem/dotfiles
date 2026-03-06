@@ -3,10 +3,7 @@
 used_w=$(hyprctl workspaces | grep -Po "(?<=ID )\\d+" | sort -n)
 active_w=$(hyprctl activeworkspace | grep -PIo "(?<=ID )\\d+")
 
-used=""
-active=""
-
-echo "(box :space-evenly false :class \"workspaces\" :spacing 10"
+echo "(box :space-evenly false :class \"workspaces\" :spacing 5"
 
 for workspace in 1 2 3 4 5 6 7 8 9 10
 do
