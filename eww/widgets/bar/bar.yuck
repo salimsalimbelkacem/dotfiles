@@ -6,6 +6,7 @@
 (defwidget bar []
  (box
   :class "bar"
+  :orientation "v"
   (left)
   (middle)
   (right)
@@ -16,9 +17,9 @@
  :monitor 0
  :geometry ( geometry
 	 ;:y "20px"
-	 :width "100%"
-	 ;; :height "100%"
-	 :anchor "bottom center"
+	 ;; :width "100%"
+	 :height "100%"
+	 :anchor "center left"
 	 )
  :exclusive true
  :stacking "fg"

@@ -3,8 +3,9 @@
 used_w=$(hyprctl workspaces | grep -Po "(?<=ID )\\d+" | sort -n)
 active_w=$(hyprctl activeworkspace | grep -PIo "(?<=ID )\\d+")
 
-echo "(box :space-evenly false :class \"workspaces\" :spacing 5"
+echo "(box :orientation \"v\" :space-evenly false :class \"workspaces\" :spacing 5"
 
+	    
 for workspace in 1 2 3 4 5 6 7 8 9 10
 do
 
@@ -23,7 +24,7 @@ do
 
     
 
-     echo " (eventbox :width 15 :height 15 :valign \"center\" :class \"workspace-btn ${used} ${active}\" :onclick \"hyprctl dispatch workspace ${workspace}\")"
+     echo " (eventbox :width 15 :height 15 :halign \"center\" :class \"workspace-btn ${used} ${active}\" :onclick \"hyprctl dispatch workspace ${workspace}\")"
 done
 
 echo ")"

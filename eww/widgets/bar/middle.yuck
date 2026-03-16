@@ -4,6 +4,6 @@
   :space-evenly false
   :class "middle"
 
-  "${currentwindow ?: ''}"
+  ;; "${currentwindow ?: ''}"
  )
 )

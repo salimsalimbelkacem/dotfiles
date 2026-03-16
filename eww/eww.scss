@@ -16,16 +16,15 @@ window {
     font-family: "velvelyne";
     font-size: 14pt;
 
+    background-color: #1F1F28;
 
     .left, .right{
 	>* {
-	    background-color: #1F1F28;
-	    padding: 0 10; 
-	    border-radius: 10 10 0 0 ;
+	    border-radius: 10;
+	    padding: 0;
 	}}
 
-    background-color:transparent;
-    padding: 0 20;
+    padding: 15 0;
 }
 
 .workspaces {
@@ -38,7 +37,7 @@ window {
 
     .active {
 	background-color: #C8C093;
-	border-color: #C8C093;
+	border: none;
     }
 
     .used {
@@ -47,23 +46,16 @@ window {
 }
 
 .volume-button {
-    border-radius: 10 10 0 0;
+    border-radius: 10;
     background: transparent;
 }
 
 .volume-icon {
+    border: none;
     color: #C8C093;
 }
 
 .volbar {
-    padding: 0 15;
-    
-}
-.time-date {
-    padding: 0 10;
-
-    button {
-	background: none;
-	padding: 0 5 0 0;
-    }
+    border: none;
+    padding: 20 0 10 0;
 }

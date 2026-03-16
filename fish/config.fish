@@ -25,4 +25,8 @@ set -x PATH "$HOME/.bun/bin" $PATH
 set -x PATH "$HOME/.cargo/bin" $PATH
 set -x PATH "$HOME/.venv/bin" $PATH 
 
+set -x PATH "/usr/lib/emsdk" $PATH 
+set -x PATH "/usr/lib/emsdk/upstream/emscripten" $PATH
+    
+    
 fish_vi_key_bindings

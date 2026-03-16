@@ -1,6 +1,7 @@
 (defwidget left[]
  (box
   :space-evenly false
+  :orientation "v"
   :class "left"
 
   :spacing 10

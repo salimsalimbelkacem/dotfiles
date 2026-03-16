@@ -1,0 +1,28 @@
+#window {
+
+    /* border-radius: 5px; */
+}
+
+#outer-box {
+    padding: 10px;
+    /* border-radius: 20px; */
+}
+
+#input {
+    background: transparent;
+    margin: 0 0 10 0;
+    border: solid 2 #2A2A37;
+
+    box-shadow: none;
+}
+
+#img{
+	margin: 0 10 0;
+}
+
+#entry {
+    margin: 5 0;
+    border: none;
+    box-shadow: none;
+    border-radius: 0px;
+}

@@ -1,0 +1,29 @@
+prompt=
+
+# x = -10
+# y = -10
+
+allow_images=true
+image_size=37
+
+hide_scroll=true
+no_actions=true
+insensitive=true
+
+# columns=2
+
+# layer=overlay
+
+halign=fill
+# content_halign=center
+close_on_focus_loss=true
+
+width=20%
+height=50%
+
+# location=bottom_right
+location=center
+
+key_up=Ctrl-p
+key_down=Ctrl-n
+

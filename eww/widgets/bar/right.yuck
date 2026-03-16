@@ -1,8 +1,10 @@
 (defvar date_reveal false)
 (defwidget right[]
 	   (box
+	    :orientation "v"
 	    :space-evenly false
 	    :halign "end"
+	    :valign "end"
 	    :spacing 10
 
 	    :class "right"
@@ -12,29 +14,17 @@
 	    (systray
 	     :spacing 5
 	     :icon-size 16
+	     :orientation "v"
 	     )
 
-	    (eventbox :onhover "eww update date_reveal=true"
-		      :onhoverlost "eww update date_reveal=false"
-
-		      (box :space-evenly "false" :orientation "h" :spacing "3" 
-			   :class "time-date"
-			   (revealer :transition "slideleft"
-				     :reveal date_reveal
-				     :duration "350ms"
-
-	    			     (date)
-	    			     )
-
-			   (clock)
-			   )))
+	    (box :orientation "v"
+		 "${hour}"
+		 "${minute}"
+		 )
+	    )
 	   )
 
 
-(defwidget date[]
-	   (button
-	    "${date_}"
-	    ))
 
 (defvar vol_reveal false)
 (defpoll volume_percent :interval "3s" "amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
@@ -42,16 +32,18 @@
 (defwidget volume []
 	   (eventbox :onhover "eww update vol_reveal=true"
 		     :onhoverlost "eww update vol_reveal=false"
-		     (box :class "module-2" :space-evenly "false" :orientation "h" :spacing "0" 
+		     :orientation "v"
+		     (box :class "module-2" :space-evenly "false" :orientation "v" :spacing "0" 
 
-			  (revealer :transition "slideleft"
+			  (revealer :transition "slideup"
 				    :reveal vol_reveal
 				    :duration "350ms"
 				    (scale    :class "volbar"
-					      :width 150
+					      :height 150
 					      :value volume_percent
-					      :orientation "h"
+					      :orientation "v"
 					      :tooltip "${volume_percent}%"
+					      :flipped true
 					      :max 100
 					      :min 0
 					      :onchange "amixer -D pulse sset Master {}%" ))

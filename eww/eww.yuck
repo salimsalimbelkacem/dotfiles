@@ -1,7 +1,13 @@
 (defvar time-visible true)
 
 (defpoll clock_ :interval "500ms" :run-while true `date +"%H:%M"`)
-(defpoll date_ :interval "500ms" :run-while true `date +"%a %d %b"`)
+
+(defpoll hour :interval "500ms" :run-while true `date +"%H"`)
+(defpoll minute :interval "500ms" :run-while true `date +"%M"`)
+
+(defpoll w_day :interval "1000ms" :run-while true `date +"%a"`)
+(defpoll m_day :interval "1000ms" :run-while true `date +"%d"`)
+(defpoll month :interval "1000ms" :run-while true `date +"%m"`)
 
 (defpoll currentwindow
  :initial " " :interval "40ms" :run-while true
