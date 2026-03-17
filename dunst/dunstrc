@@ -2,7 +2,7 @@
     monitor = 0
     follow = none
 
-    width = (0, 500)
+    width = (200, 300)
     height = (50, 300)
     origin = top-right
     offset = (25, 25)
@@ -46,7 +46,7 @@
     line_height = 0
 
     markup = full
-    format = "<span size="small">%a</span><span size="xx-large">\n%s</span>\n%b"
+    format = "<span size="x-large">%s</span>\n%b\n\n<span size="x-small">%a</span>"
 
     alignment = right
     vertical_alignment = center
@@ -55,10 +55,10 @@
     ellipsize = middle
     ignore_newline = no
 
-    stack_duplicates = true
-    hide_duplicate_count = false
+    stack_duplicates = false
+    hide_duplicate_count = yes
 
-    show_indicators = yes
+    show_indicators = no
 
     sticky_history = yes
     history_length = 20
