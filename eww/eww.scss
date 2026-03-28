@@ -3,12 +3,16 @@ window {
 }
 
 .tuxclock {
-    .time{
-	font-size: 80pt;
-	font-family: freeSerif;
-	font-weight: bold;
+    .clock {
+	font-size: 30pt;
     }
-    padding: 50;
+
+    & > * {
+	background: #1F1F28;
+	padding: 10 20;
+
+    }
+    padding: 15 15;
 
 }
 
@@ -24,7 +28,7 @@ window {
 	    padding: 0;
 	}}
 
-    padding: 15 0;
+    padding: 10 5;
 }
 
 .workspaces {
@@ -46,16 +50,21 @@ window {
 }
 
 .volume-button {
-    border-radius: 10;
+    border-radius: 0;
     background: transparent;
+
+    padding: 0;
 }
 
 .volume-icon {
     border: none;
     color: #C8C093;
+
+    padding: 0;
 }
 
 .volbar {
     border: none;
-    padding: 20 0 10 0;
+    padding: 15 0;
+    background: #2A2A37;
 }

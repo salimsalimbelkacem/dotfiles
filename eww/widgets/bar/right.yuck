@@ -16,11 +16,7 @@
 	     :icon-size 16
 	     :orientation "v"
 	     )
-
-	    (box :orientation "v"
-		 "${hour}"
-		 "${minute}"
-		 )
+	    (clock_date)
 	    )
 	   )
 
@@ -54,4 +50,26 @@
 					 :class "volume-icon"
 					 :fill-svg "#c8c093"
 					 ))
+			  )))
+
+(defwidget clock_date []
+	   (eventbox :onhover "eww update date_reveal=true"
+		     :onhoverlost "eww update date_reveal=false"
+		     :orientation "v"
+
+		     (box :class "module-2" :space-evenly "false" :orientation "v" :spacing "0" 
+
+			  (revealer :transition "slideup"
+				    :reveal date_reveal
+				    :duration "350ms"
+				    (box
+				     :orientation "v"
+				     "${m_day}" "${month}"
+				     )
+				    )
+
+			  (box :orientation "v"
+			       "${hour}"
+			       "${minute}"
+			       )
 			  )))

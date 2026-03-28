@@ -1,19 +1,8 @@
-(include "./widgets/bar/widgets.yuck")
 (include "./widgets/bar/left.yuck")
 (include "./widgets/bar/middle.yuck")
 (include "./widgets/bar/right.yuck")
 
-(defwidget bar []
- (box
-  :class "bar"
-  :orientation "v"
-  (left)
-  (middle)
-  (right)
- )
- )
-
-(defwindow status_bar
+(defwindow bar
  :monitor 0
  :geometry ( geometry
 	 ;:y "20px"
@@ -23,5 +12,12 @@
 	 )
  :exclusive true
  :stacking "fg"
- (bar)
+
+    (box
+    :class "bar"
+    :orientation "v"
+    (left)
+    (middle)
+    (right)
+    )
  ) 

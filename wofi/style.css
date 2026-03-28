@@ -1,21 +1,14 @@
 #window {
-
-    border-radius: 10px;
 }
 
 #outer-box {
     padding: 10px;
-    /* border-radius: 20px; */
 }
 
 #input {
     background: transparent;
-    margin: 0 0 10 0;
     border-radius: 5px;
     border: solid 2 #2A2A37;
-    /* background-color: #2A2A37; */
-
-    box-shadow: none;
 }
 
 #img{

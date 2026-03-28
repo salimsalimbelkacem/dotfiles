@@ -1,3 +1,6 @@
+(defpoll display_workspaces :interval "70ms" :run-while true `$HOME/.config/eww/scripts/workspaces`)
+(defwidget workspaces [] (literal :content display_workspaces))
+
 (defwidget left[]
  (box
   :space-evenly false

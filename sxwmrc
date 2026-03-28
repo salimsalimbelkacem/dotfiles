@@ -3,8 +3,7 @@ focused_border_colour    : #aeaeae
 unfocused_border_colour  : #444444
 swap_border_colour       : #eeeeee
 
-exec : "~/.dwm/autostart.sh"
-exec : "polybar"
+exec : "eww start status_bar"
 exec : "nm-applet"
 
 # General Options:
