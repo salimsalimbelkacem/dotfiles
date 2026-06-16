@@ -7,6 +7,7 @@ $mainMod = SUPER
 $screenShot = grim -g "$(slurp)"
 
 exec-once = ~/.local/bin/autostart.sh --hypr
+exec-once = hyprpaper
 
 env = XCURSOR_THEME,Adwaita
 env = XCURSOR_SIZE,24
@@ -17,11 +18,11 @@ env = ELECTRON_OZONE_PLATFORM_HINT,auto
 env = QT_QPA_PLATFORMTHEME,qt6ct
 
 general {
-    gaps_in  = 10
-    gaps_out = 15
-    border_size = 0
-    col.active_border = rgb(C8C093)
-    col.inactive_border = rgb(363646)
+    gaps_in  = 0
+    gaps_out = 0
+    border_size = 2
+    col.active_border =   rgb(e3e3e3)
+    col.inactive_border = rgb(3e3e3e)
     resize_on_border = false
     layout = master
 
@@ -63,8 +64,6 @@ master {
 misc {
     force_default_wallpaper = 0
     disable_hyprland_logo = true
-    background_color = 0x16161D
-    vfr = true
 }
 
 input {
@@ -80,6 +79,7 @@ input {
 
 bind = $mainMod, M, exec, hyprctl keyword general:layout monocle
 bind = $mainMod, T, exec, hyprctl keyword general:layout master
+
 bind = $mainMod, F, fullscreen
 
 bind = $mainMod  SHIFT, Q, exit,
@@ -151,6 +151,5 @@ windowrule = match:class kitty, border_size 2
 windowrule = match:class Emacs, border_size 2
 windowrule = match:class emacs, border_size 2
 
-windowrule = match:class org.kde.kdenlive, float on
 windowrule = match:class zenity, float on
 windowrule = match:class thunar, float on
