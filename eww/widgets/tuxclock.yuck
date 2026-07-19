@@ -1,32 +1,13 @@
 (defwindow tuxclock
 	   :monitor 0
 	   :class "tuxclock"
-	   :geometry (geometry
-		       :anchor "top right")
-	   :hexpand true
-	   :vexpand true
+	   :geometry (geometry :anchor "top right")
+	   :hexpand true :vexpand true
 	   :stacking "bg"
 
-	   (box :orientation "v"
-		:class "widgets"
-		:halign "end"
-		:valign "start"
-		:spacing 20
-		:space-evenly false
-		:width 200
 
-		(box :orientation "v"
-		     :spacing 0
-		     :space-evenly false
-		     (clock)
+	   "pipi"
 
-		     (box :spacing 0
-			  "${w_day}"
-			  "${m_day}"
-			  "${month}"
-			  )
-		     )
-		)
 	   )
 
 (defwidget clock []

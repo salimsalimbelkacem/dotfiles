@@ -31,6 +31,7 @@ PanelWindow {
 
         Workspaces {}
         Item { Layout.fillHeight:true }
+        Tray {}
         Netw {}
         Layouts {}
         Clock {}

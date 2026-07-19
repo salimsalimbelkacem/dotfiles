@@ -1,9 +1,0 @@
-(defwidget middle[]
- (box
-  :halign "center"
-  :space-evenly false
-  :class "middle"
-
-  ;; "${currentwindow ?: ''}"
- )
-)

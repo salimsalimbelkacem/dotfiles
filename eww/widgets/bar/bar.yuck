@@ -1,23 +1,58 @@
-(include "./widgets/bar/left.yuck")
-(include "./widgets/bar/middle.yuck")
 (include "./widgets/bar/right.yuck")
 
-(defwindow bar
+(defpoll display_workspaces_hypr :interval "70ms"
+ :run-while true `$HOME/.config/eww/scripts/hypr_workspace`)
+
+(defpoll display_workspaces_X :interval "70ms"
+ :run-while true `$HOME/.config/eww/scripts/X_workspace`)
+
+(defwindow hypr_bar
  :monitor 0
- :geometry ( geometry
-	 ;:y "20px"
-	 ;; :width "100%"
-	 :height "100%"
-	 :anchor "center left"
-	 )
+ :geometry (geometry
+     :height "100%"
+     :anchor "center left")
  :exclusive true
  :stacking "fg"
 
-    (box
-    :class "bar"
-    :orientation "v"
-    (left)
-    (middle)
-    (right)
-    )
- ) 
+ (box
+  :class "bar"
+  :orientation "v"
+
+  (box
+   :space-evenly false
+   :orientation "v"
+   :spacing 10
+
+   (literal :content display_workspaces_hypr)
+  )
+
+  (right)
+ )
+ )
+
+(defwindow X_bar
+ :monitor 0
+ :geometry (geometry
+     :height "100%"
+     :anchor "center left"
+     )
+ :reserve (struts :distance "40px" :side "left")
+ :stacking "fg"
+ :windowtype "dock"
+
+ (box
+  :class "bar"
+  :orientation "v"
+
+  (box
+   :space-evenly false
+   :orientation "v"
+   :class "left"
+   :spacing 10
+
+   (literal :content display_workspaces_X)
+  )
+
+  (right)
+ )
+ )

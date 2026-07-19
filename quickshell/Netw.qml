@@ -1,6 +1,6 @@
-import Quickshell.Hyprland
 import QtQuick
 import QtQuick.Layouts
+import Quickshell.Hyprland
 import Quickshell.Networking
 
 Text {
@@ -9,10 +9,11 @@ Text {
 
     font {
         family: root.fontFamily
-        pixelSize: root.fontSize + 2
+        pixelSize: root.fontSize + 4
     }
 
     readonly property var wifiIcons: [ "󰤯", "󰤟", "󰤢", "󰤥", "󰤨"]  
+    // readonly property var wifiIcons: [ "󰣾", "󰣴", "󰣶", "󰣸", "󰣺"]  
     readonly property var wifi_device: Networking.devices.values[1]
     readonly property var wifi_networks: wifi_device.networks.values
 
@@ -23,12 +24,13 @@ Text {
                     wifi_networks[0]
                     .signalStrength * 4)]
         else return "󰤭"
+        // else return "󰣼"
     }
 
     text: displayIcon()
 
-    MouseArea {
-        anchors.fill: parent
-        cursorShape: Qt.PointingHandCursor
-    }
+    // MouseArea {
+    //     anchors.fill: parent
+    //     cursorShape: Qt.PointingHandCursor
+    // }
 }
