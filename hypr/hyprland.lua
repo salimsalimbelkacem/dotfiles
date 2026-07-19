@@ -26,7 +26,6 @@ local screenShot = "grim -g \"$(slurp)\""
 
 hl.on("hyprland.start", function () 
   hl.exec_cmd("~/.local/bin/autostart.sh --hypr")
-  hl.exec_cmd("hyprpaper")
 end)
 
 
@@ -72,13 +71,14 @@ hl.config({
 
         border_size = 2,
 
+        resize_on_border = false,
+        allow_tearing    = false,
+        layout           = "master",
+
         col = {
           active_border   = "rgb(e3e3e3)",
           inactive_border = "rgb(3e3e3e)"
         },
-        resize_on_border = false,
-        allow_tearing = false,
-        layout = "master",
     },
 
     decoration = {
@@ -86,16 +86,14 @@ hl.config({
         rounding_power = 0,
         active_opacity   = 1.0,
         inactive_opacity = 1.0,
-        shadow = { enabled      = false },
+        shadow = { enabled = false },
         blur = {
             enabled   = true,
             size      = 3,
-            passes    = 1,
-            vibrancy  = 0.1696,
+            passes    = 3,
+            vibrancy  = 0,
         },},
-    animations = {
-        enabled = true,
-    },
+    animations = { enabled = true },
 })
 
 hl.curve("easeOutQuint",   { type = "bezier", points = { {0.23, 1},    {0.32, 1}    } })
@@ -117,7 +115,7 @@ hl.animation({ leaf = "borderangle", enabled = false, speed = 1, bezier = "defau
 
 hl.config({
     master = {
-        new_status = "master",
+        -- new_status = "master",
         new_on_top = true
     },
     monocle = {},
@@ -159,42 +157,59 @@ function bind_exec( bind, exec )
   hl.bind(mainMod .. " + " .. bind, hl.dsp.exec_cmd(exec))
 end
 
+-- spawn
 bind_exec("SHIFT + RETURN", terminal)
 bind_exec("slash", "signal-desktop")
 bind_exec("e", "emacsclient -c")
+bind_exec("SHIFT + e", "thunar")
 bind_exec("p", menu)
 bind_exec("SHIFT + p", screenShot)
 
-hl.bind(mainMod .. " + b", function ()
-    hl.exec_cmd("eww open --toggle hypr_bar")
-end)
+-- hl.bind(mainMod .. " + b", function ()
+--     hl.exec_cmd("eww open --toggle hypr_bar")
+-- end)
 
-hl.bind(mainMod .. " + m", function ()
+-- layouts
+
+hl.bind(mainMod ..
+" + m", function ()
   hl.config({general = {layout = "monocle"}})
+  hl.dispatch(hl.dsp.event('layout,monocle'))
 end)
 
-hl.bind(mainMod .. " + t", function ()
+hl.bind(mainMod ..
+" + t", function ()
   hl.config({general = {layout = "master"}})
+  hl.dispatch(hl.dsp.event('layout,master'))
 end)
 
-hl.bind(
-  mainMod .. " + Q",
-  hl.dsp.window.close())
-hl.bind(mainMod .. " + h", hl.dsp.window.resize( {
-    x=-50, y = 0,
-    relative=true,
-    window="activewindow"}))
-hl.bind(mainMod .. " + l", hl.dsp.window.resize({
-  x=50, y = 0,
-  relative=true,
-  window="activewindow"}))
-hl.bind(mainMod .. " + f", hl.dsp.window.fullscreen({
-  mode = "fullscreen",
-  action="toggle",
-  window="activewindow"}))
-hl.bind(mainMod .. " +  o", hl.dsp.window.pin("activewindow"))
+hl.bind( mainMod ..
+" + Q", hl.dsp.window
+.close())
 
-hl.bind(mainMod .. " + space", hl.dsp.window.float({ action = "toggle" }))
+hl.bind( mainMod ..
+" + SHIFT + Q", hl.dsp
+.exit())
+
+hl.bind(mainMod ..
+" + h", hl.dsp.window
+.resize( { x=-50, y = 0, relative=true, window="activewindow"}))
+
+hl.bind(mainMod ..
+" + l", hl.dsp.window
+.resize({ x=50, y = 0, relative=true, window="activewindow"}))
+
+hl.bind(mainMod ..
+" + f", hl.dsp.window
+.fullscreen({ mode = "fullscreen", action="toggle", window="activewindow"}))
+
+hl.bind(mainMod ..
+" +  o", hl.dsp.window
+.pin("activewindow"))
+
+hl.bind(mainMod ..
+" + space", hl.dsp.window
+.float({ action = "toggle" }))
 
 hl.bind(mainMod .. " + k",       hl.dsp.layout("cycleprev"))
 hl.bind(mainMod .. " + j",       hl.dsp.layout("cyclenext"))
@@ -204,8 +219,10 @@ hl.bind(mainMod .. " +  RETURN", hl.dsp.layout("swapwithmaster"))
 
 for i = 1, 10 do
     local key = i % 10
-    hl.bind(mainMod .. " + "         .. key, hl.dsp.focus({ workspace = i}))
-    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+    hl.bind(mainMod .. " + "         .. key, hl.dsp
+    .focus({ workspace = i}))
+    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window
+    .move({ workspace = i }))
 end
 
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
@@ -254,8 +271,7 @@ hl.window_rule({
 hl.window_rule({
     name  = "float volatile windows",
     match = {
-        class      = "thunar",
-        title      = "Rename.*",
+        class      = "zenity|thunar",
     },
 
     float = true,
